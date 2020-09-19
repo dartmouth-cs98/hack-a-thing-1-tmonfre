@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct HolidayListView: View {
+struct HolidayList: View {
     
     var controller = HolidayDataController()
     
@@ -50,49 +50,51 @@ struct HolidayListView: View {
     
     // main view
     var body: some View {
-        VStack(alignment: .leading) {
-            
+        NavigationView {
             VStack(alignment: .leading) {
-                Text("Holiday Finder")
-                    .font(.title)
-                Text("Find holidays in a given country by typing the country code below.")
-                    .font(.subheadline)
-            }
-            .padding(.leading)
-            .padding(.top)
+                VStack(alignment: .leading) {
+                    Text("Find holidays in a given country by typing the country code below.")
+                        .multilineTextAlignment(.leading)
+                        .font(.subheadline)
+                        .padding(.leading)
+                        .padding(.top)
     
-            
-            HStack {
-                TextField("e.g. US", text: $countryCode)
-                    .padding(7)
-                    .padding(.horizontal, 10)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(8)
-                
-                Button(action: onSubmitPress) {
-                    Text("Search")
-                        .padding(.leading, 8)
+                    HStack {
+                        TextField("e.g. US", text: $countryCode)
+                            .padding(7)
+                            .padding(.horizontal, 10)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+    
+                        Button(action: onSubmitPress) {
+                            Text("Search")
+                                .padding(.leading, 8)
+                        }
+                        .transition(.move(edge: .trailing))
+                        .animation(.default)
+                    }
+                    .padding(.leading)
+                    .padding(.trailing)
                 }
-                .transition(.move(edge: .trailing))
-                .animation(.default)
-            }
-            .padding(.leading)
-            .padding(.trailing)
-            
-            List {
-                ForEach(holidays, id: \.name) { holiday in
-                    VStack(alignment: .leading) {
-                        Text(holiday.name)
-                        Text("\(holiday.date.datetime.month)/\(holiday.date.datetime.day)")
+                
+                List {
+                    ForEach(holidays, id: \.name) { holiday in
+                        NavigationLink(destination: HolidayDetail(holiday: holiday)) {
+                            VStack(alignment: .leading) {
+                                Text(holiday.name)
+                                Text("\(holiday.date.datetime.month)/\(holiday.date.datetime.day)")
+                            }
+                        }
                     }
                 }
             }
+            .navigationBarTitle("Holiday Finder")
         }
     }
 }
 
 struct HolidayListView_Previews: PreviewProvider {
     static var previews: some View {
-        HolidayListView()
+        HolidayList()
     }
 }

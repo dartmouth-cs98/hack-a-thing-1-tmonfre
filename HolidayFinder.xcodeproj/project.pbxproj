@@ -17,7 +17,8 @@
 		71BB137225152DDA004DCC11 /* HolidayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137025152DDA004DCC11 /* HolidayType.swift */; };
 		71BB137425152E03004DCC11 /* HolidayDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137325152E03004DCC11 /* HolidayDataController.swift */; };
 		71BB137625152E09004DCC11 /* HolidayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137525152E09004DCC11 /* HolidayRequest.swift */; };
-		71BB137825152E10004DCC11 /* HolidayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137725152E10004DCC11 /* HolidayListView.swift */; };
+		71BB137825152E10004DCC11 /* HolidayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137725152E10004DCC11 /* HolidayList.swift */; };
+		71BB137A25154014004DCC11 /* HolidayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137925154014004DCC11 /* HolidayDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		71BB137025152DDA004DCC11 /* HolidayType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayType.swift; sourceTree = "<group>"; };
 		71BB137325152E03004DCC11 /* HolidayDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayDataController.swift; sourceTree = "<group>"; };
 		71BB137525152E09004DCC11 /* HolidayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayRequest.swift; sourceTree = "<group>"; };
-		71BB137725152E10004DCC11 /* HolidayListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayListView.swift; sourceTree = "<group>"; };
+		71BB137725152E10004DCC11 /* HolidayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayList.swift; sourceTree = "<group>"; };
+		71BB137925154014004DCC11 /* HolidayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,8 @@
 		71BB136B25152DAD004DCC11 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				71BB137725152E10004DCC11 /* HolidayListView.swift */,
+				71BB137725152E10004DCC11 /* HolidayList.swift */,
+				71BB137925154014004DCC11 /* HolidayDetail.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -201,8 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71BB137A25154014004DCC11 /* HolidayDetail.swift in Sources */,
 				71BB137625152E09004DCC11 /* HolidayRequest.swift in Sources */,
-				71BB137825152E10004DCC11 /* HolidayListView.swift in Sources */,
+				71BB137825152E10004DCC11 /* HolidayList.swift in Sources */,
 				71BB137425152E03004DCC11 /* HolidayDataController.swift in Sources */,
 				71BB135625152D2C004DCC11 /* AppDelegate.swift in Sources */,
 				71BB137225152DDA004DCC11 /* HolidayType.swift in Sources */,
