@@ -11,10 +11,17 @@ import SwiftUI
 struct HolidayDetail: View {
     
     var holiday: HolidayType
-    
+        
     // generates type text based on number of holiday types in object
     func generateTypeText (holiday: HolidayType) -> String {
         return "Type\(holiday.type.count > 1 ? "s" : "")"
+    }
+    
+    // generates date text in mm/dd/yyyy format
+    func generateDateText (holiday: HolidayType) -> String {
+        let datetime = holiday.date.datetime
+        
+        return "\(datetime.month)/\(datetime.day)/\(datetime.year)"
     }
         
     var body: some View {
@@ -23,6 +30,8 @@ struct HolidayDetail: View {
                 Text(holiday.name)
                     .font(.title)
                     .multilineTextAlignment(.leading)
+                
+                Text(generateDateText(holiday: holiday))
                 
                 Text(holiday.description)
                 

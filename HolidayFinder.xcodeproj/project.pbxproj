@@ -19,6 +19,7 @@
 		71BB137625152E09004DCC11 /* HolidayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137525152E09004DCC11 /* HolidayRequest.swift */; };
 		71BB137825152E10004DCC11 /* HolidayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137725152E10004DCC11 /* HolidayList.swift */; };
 		71BB137A25154014004DCC11 /* HolidayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137925154014004DCC11 /* HolidayDetail.swift */; };
+		71BB137E2517AD09004DCC11 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137D2517AD09004DCC11 /* Spinner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		71BB137525152E09004DCC11 /* HolidayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayRequest.swift; sourceTree = "<group>"; };
 		71BB137725152E10004DCC11 /* HolidayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayList.swift; sourceTree = "<group>"; };
 		71BB137925154014004DCC11 /* HolidayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetail.swift; sourceTree = "<group>"; };
+		71BB137D2517AD09004DCC11 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		71BB136A25152DA1004DCC11 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				71BB137C2517ACF7004DCC11 /* components */,
 				71BB136E25152DB9004DCC11 /* types */,
 				71BB136D25152DB3004DCC11 /* controllers */,
 				71BB136C25152DB0004DCC11 /* models */,
@@ -131,6 +134,14 @@
 				71BB137025152DDA004DCC11 /* HolidayType.swift */,
 			);
 			path = types;
+			sourceTree = "<group>";
+		};
+		71BB137C2517ACF7004DCC11 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				71BB137D2517AD09004DCC11 /* Spinner.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 				71BB135825152D2C004DCC11 /* SceneDelegate.swift in Sources */,
 				71BB137125152DDA004DCC11 /* HolidayCollectionType.swift in Sources */,
 				71BB135A25152D2C004DCC11 /* ContentView.swift in Sources */,
+				71BB137E2517AD09004DCC11 /* Spinner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

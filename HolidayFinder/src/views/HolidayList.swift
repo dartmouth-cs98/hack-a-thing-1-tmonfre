@@ -12,13 +12,17 @@ struct HolidayList: View {
     
     var controller = HolidayDataController()
     
-    @State private var countryCode: String = ""
-    @State private var holidays: [HolidayType] = []
+    @State private var allHolidays: [HolidayType] = []
+    @State private var filteredHolidays: [HolidayType] = []
+    @State private var isLoading: Bool = false
+    @State private var searchTerm: String = ""
     
-    // when user presses submit, fetch holidays in controller
-    func onSubmitPress () -> Void {
+    // fetches holiday info in the controller
+    func fetchHolidays () -> Void {
+        self.isLoading = true
+        
         self.controller.getHolidays(
-            countryCode: self.countryCode,
+            countryCode: Locale.current.regionCode!,
             onHolidayFetch: { result in
                 switch result {
                     case .success(let holidays):
@@ -32,6 +36,8 @@ struct HolidayList: View {
     
     // parse through holidays, remove duplicates, and sort
     func setHolidays (holidays: [HolidayType]) -> Void {
+        self.isLoading = false
+
         var uniqueHolidays = [HolidayType]()
         
         holidays.forEach({ holiday in
@@ -43,9 +49,29 @@ struct HolidayList: View {
             }
         })
         
-        // sort and save
-        self.holidays = uniqueHolidays
+        let sortedHolidays = uniqueHolidays
             .sorted(by: { $0.date.iso < $1.date.iso })
+        
+        self.allHolidays = sortedHolidays
+        self.filteredHolidays = sortedHolidays
+    }
+    
+    // filter list of holidays
+    func filter () -> Void {
+        self.filteredHolidays = self.allHolidays.filter({ (holiday: HolidayType) -> Bool in
+            return holiday.name.uppercased().contains(self.searchTerm.uppercased())
+        })
+    }
+    
+    // clear user filter and search term
+    func clear () -> Void {
+        self.filteredHolidays = self.allHolidays
+        self.searchTerm = ""
+    }
+    
+    // determine if the search bar should filter or clear
+    func shouldFilter () -> Bool {
+        return self.allHolidays.count == self.filteredHolidays.count
     }
     
     // main view
@@ -53,42 +79,45 @@ struct HolidayList: View {
         NavigationView {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
-                    Text("Find holidays in a given country by typing the country code below.")
-                        .multilineTextAlignment(.leading)
-                        .font(.subheadline)
-                        .padding(.leading)
-                        .padding(.top)
-    
                     HStack {
-                        TextField("e.g. US", text: $countryCode)
+                        TextField("e.g. St. Patrick's Day", text: $searchTerm)
                             .padding(7)
                             .padding(.horizontal, 10)
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
-    
-                        Button(action: onSubmitPress) {
-                            Text("Search")
+
+                        Button(action: self.shouldFilter() ? filter : clear) {
+                            Text(self.shouldFilter() ? "Search" : "Clear")
                                 .padding(.leading, 8)
                         }
                         .transition(.move(edge: .trailing))
                         .animation(.default)
                     }
-                    .padding(.leading)
-                    .padding(.trailing)
+                    .padding(.leading, 12)
+                    .padding(.trailing, 12)
                 }
                 
-                List {
-                    ForEach(holidays, id: \.name) { holiday in
-                        NavigationLink(destination: HolidayDetail(holiday: holiday)) {
-                            VStack(alignment: .leading) {
-                                Text(holiday.name)
-                                Text("\(holiday.date.datetime.month)/\(holiday.date.datetime.day)")
+                ZStack {
+                    List {
+                        ForEach(filteredHolidays, id: \.name) { holiday in
+                            NavigationLink(destination: HolidayDetail(holiday: holiday)) {
+                                VStack(alignment: .leading) {
+                                    Text(holiday.name)
+                                    Text("\(holiday.date.datetime.month)/\(holiday.date.datetime.day)")
+                                }
                             }
                         }
                     }
+                    
+                    Spinner(isAnimating: self.isLoading, color: UIColor.black)
+                        .padding(.top, -45)
                 }
             }
             .navigationBarTitle("Holiday Finder")
+        }
+        .onAppear() {
+            // grab all holiday info
+            self.fetchHolidays()
         }
     }
 }
