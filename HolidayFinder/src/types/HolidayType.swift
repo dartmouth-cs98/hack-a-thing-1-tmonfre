@@ -23,4 +23,6 @@ struct HolidayType: Decodable {
     var name: String
     var description: String
     var date: DateInfo
+    var locations: String
+    var type: [String]
 }

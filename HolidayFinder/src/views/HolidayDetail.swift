@@ -12,15 +12,23 @@ struct HolidayDetail: View {
     
     var holiday: HolidayType
     
+    // generates type text based on number of holiday types in object
+    func generateTypeText (holiday: HolidayType) -> String {
+        return "Type\(holiday.type.count > 1 ? "s" : "")"
+    }
+        
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 12.0) {
                 Text(holiday.name)
                     .font(.title)
                     .multilineTextAlignment(.leading)
-                    .padding(.bottom, 12)
                 
                 Text(holiday.description)
+                
+                Text("Locations: \(holiday.locations)")
+                
+                Text("\(generateTypeText(holiday: holiday)): \(holiday.type.joined(separator: ", "))")
                 
                 Spacer()
             }
@@ -44,7 +52,9 @@ struct HolidayDetail_Previews: PreviewProvider {
                 month: 1,
                 day: 1
             )
-        )
+        ),
+        locations: "NH",
+        type: ["Observance"]
     )
     
     static var previews: some View {
