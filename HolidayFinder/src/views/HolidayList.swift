@@ -11,11 +11,13 @@ import SwiftUI
 struct HolidayList: View {
     
     var controller = HolidayDataController()
-    
+    var stateController = StateLocationController()
+        
     @State private var allHolidays: [HolidayType] = []
     @State private var filteredHolidays: [HolidayType] = []
     @State private var isLoading: Bool = false
     @State private var searchTerm: String = ""
+    @State private var stateLocations: [StateType] = []
     
     // fetches holiday info in the controller
     func fetchHolidays () -> Void {
@@ -100,7 +102,7 @@ struct HolidayList: View {
                 ZStack {
                     List {
                         ForEach(filteredHolidays, id: \.name) { holiday in
-                            NavigationLink(destination: HolidayDetail(holiday: holiday)) {
+                            NavigationLink(destination: HolidayDetail(holiday: holiday, stateLocations: self.stateLocations)) {
                                 VStack(alignment: .leading) {
                                     Text(holiday.name)
                                     Text("\(holiday.date.datetime.month)/\(holiday.date.datetime.day)")
@@ -116,8 +118,9 @@ struct HolidayList: View {
             .navigationBarTitle("Holiday Finder")
         }
         .onAppear() {
-            // grab all holiday info
+            // grab all holiday and state info
             self.fetchHolidays()
+            self.stateLocations = self.stateController.getStateLocations()
         }
     }
 }

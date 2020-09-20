@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7198D85A2517DA49005DCE82 /* HolidayMapPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198D8592517DA49005DCE82 /* HolidayMapPreview.swift */; };
 		71BB135625152D2C004DCC11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB135525152D2C004DCC11 /* AppDelegate.swift */; };
 		71BB135825152D2C004DCC11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB135725152D2C004DCC11 /* SceneDelegate.swift */; };
 		71BB135A25152D2C004DCC11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB135925152D2C004DCC11 /* ContentView.swift */; };
@@ -20,9 +21,14 @@
 		71BB137825152E10004DCC11 /* HolidayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137725152E10004DCC11 /* HolidayList.swift */; };
 		71BB137A25154014004DCC11 /* HolidayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137925154014004DCC11 /* HolidayDetail.swift */; };
 		71BB137E2517AD09004DCC11 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB137D2517AD09004DCC11 /* Spinner.swift */; };
+		71BB13822517BE77004DCC11 /* state-coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BB13812517BE77004DCC11 /* state-coordinates.json */; };
+		71BB13842517C30F004DCC11 /* StateLocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB13832517C30F004DCC11 /* StateLocationType.swift */; };
+		71BB13862517C34D004DCC11 /* StateLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB13852517C34D004DCC11 /* StateLocationModel.swift */; };
+		71BB13882517C465004DCC11 /* StateLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BB13872517C465004DCC11 /* StateLocationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7198D8592517DA49005DCE82 /* HolidayMapPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayMapPreview.swift; sourceTree = "<group>"; };
 		71BB135225152D2C004DCC11 /* HolidayFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolidayFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BB135525152D2C004DCC11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71BB135725152D2C004DCC11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +44,10 @@
 		71BB137725152E10004DCC11 /* HolidayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayList.swift; sourceTree = "<group>"; };
 		71BB137925154014004DCC11 /* HolidayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetail.swift; sourceTree = "<group>"; };
 		71BB137D2517AD09004DCC11 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		71BB13812517BE77004DCC11 /* state-coordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "state-coordinates.json"; sourceTree = "<group>"; };
+		71BB13832517C30F004DCC11 /* StateLocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLocationType.swift; sourceTree = "<group>"; };
+		71BB13852517C34D004DCC11 /* StateLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLocationModel.swift; sourceTree = "<group>"; };
+		71BB13872517C465004DCC11 /* StateLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateLocationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +103,7 @@
 		71BB136A25152DA1004DCC11 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				71BB13812517BE77004DCC11 /* state-coordinates.json */,
 				71BB137C2517ACF7004DCC11 /* components */,
 				71BB136E25152DB9004DCC11 /* types */,
 				71BB136D25152DB3004DCC11 /* controllers */,
@@ -115,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				71BB137525152E09004DCC11 /* HolidayRequest.swift */,
+				71BB13852517C34D004DCC11 /* StateLocationModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -123,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				71BB137325152E03004DCC11 /* HolidayDataController.swift */,
+				71BB13872517C465004DCC11 /* StateLocationController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -132,6 +145,7 @@
 			children = (
 				71BB136F25152DDA004DCC11 /* HolidayCollectionType.swift */,
 				71BB137025152DDA004DCC11 /* HolidayType.swift */,
+				71BB13832517C30F004DCC11 /* StateLocationType.swift */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -140,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				71BB137D2517AD09004DCC11 /* Spinner.swift */,
+				7198D8592517DA49005DCE82 /* HolidayMapPreview.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -205,6 +220,7 @@
 				71BB136225152D2D004DCC11 /* LaunchScreen.storyboard in Resources */,
 				71BB135F25152D2D004DCC11 /* Preview Assets.xcassets in Resources */,
 				71BB135C25152D2D004DCC11 /* Assets.xcassets in Resources */,
+				71BB13822517BE77004DCC11 /* state-coordinates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,15 +231,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71BB13882517C465004DCC11 /* StateLocationController.swift in Sources */,
 				71BB137A25154014004DCC11 /* HolidayDetail.swift in Sources */,
 				71BB137625152E09004DCC11 /* HolidayRequest.swift in Sources */,
 				71BB137825152E10004DCC11 /* HolidayList.swift in Sources */,
 				71BB137425152E03004DCC11 /* HolidayDataController.swift in Sources */,
 				71BB135625152D2C004DCC11 /* AppDelegate.swift in Sources */,
+				7198D85A2517DA49005DCE82 /* HolidayMapPreview.swift in Sources */,
 				71BB137225152DDA004DCC11 /* HolidayType.swift in Sources */,
 				71BB135825152D2C004DCC11 /* SceneDelegate.swift in Sources */,
+				71BB13842517C30F004DCC11 /* StateLocationType.swift in Sources */,
 				71BB137125152DDA004DCC11 /* HolidayCollectionType.swift in Sources */,
 				71BB135A25152D2C004DCC11 /* ContentView.swift in Sources */,
+				71BB13862517C34D004DCC11 /* StateLocationModel.swift in Sources */,
 				71BB137E2517AD09004DCC11 /* Spinner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
