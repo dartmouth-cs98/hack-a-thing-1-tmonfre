@@ -4,6 +4,8 @@ HolidayFinder is an iOS app built with SwiftUI that renders a list of nationally
 
 Users can search through the list for a given holiday, and can click on one for more information. For holidays that are specific to a given state, HolidayFinder renders a MapView using `MapKit` centered over the state.
 
+![gif of final product](./docs/holiday-finder.gif)
+
 ## What I Learned
 
 My primary takeaway from this tutorial/hack was learning how to process data and manage state in a Swift project. I learned how to handle asynchronous requests as well as how to process local JSON files.
